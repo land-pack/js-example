@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/ak/js-example/templates/index.html</title>
+<meta name="Generator" content="Vim/7.4">
+<meta name="plugin-version" content="vim7.4_v1">
+<meta name="syntax" content="none">
+<meta name="settings" content="use_css,pre_wrap,no_foldcolumn,expand_tabs,prevent_copy=">
+<meta name="colorscheme" content="none">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #000000; background-color: #ffffff; }
+body { font-family: monospace; color: #000000; background-color: #ffffff; }
+* { font-size: 1em; }
+-->
+</style>
+
+
+
+<script type='text/javascript'>
+
+function setCookie(c_name,value,expiredays)
+{
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate()+expiredays)
+    document.cookie=c_name+ "=" +escape(value)+
+    ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+}
+
+
+function getCookie(c_name)
+{
+    if (document.cookie.length>0)
+      {
+      c_start=document.cookie.indexOf(c_name + "=")
+      if (c_start!=-1)
+        { 
+        c_start=c_start + c_name.length+1 
+        c_end=document.cookie.indexOf(";",c_start)
+        if (c_end==-1) c_end=document.cookie.length
+        return unescape(document.cookie.substring(c_start,c_end))
+        } 
+      }
+    return ""
+}
+
+
+function checkCookie()
+    {
+    username=getCookie('username')
+    if (username!=null && username!="")
+      {alert('Welcome again '+username+'!')}
+    else 
+      {
+      username=prompt('Please enter your name:',"")
+      if (username!=null && username!="")
+        {
+        setCookie('username',username,365)
+        }
+      }
+}
+
+
+</script>
+</head>
+<body>
+<pre id='vimCodeElement'>
+<body onLoad="checkCookie()">
+<h1>Hello, Frank </h1>
+
+<input type="text" id="name" name="username"> 
+
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->
