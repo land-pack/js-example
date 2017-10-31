@@ -50,10 +50,17 @@ function checkCookie()
     {
     username=getCookie('username')
     if (username!=null && username!="")
-      {alert('Welcome again '+username+'!')}
+      {
+            //alert('Welcome again '+username+'!');
+            document.getElementById("username").value = username;
+
+            
+      }
     else 
       {
-      username=prompt('Please enter your name:',"")
+      //username=prompt('Please enter your name:',"")
+       //var username = document.getElementById("username").value;
+       //document.getElementById("username").value = username;
       if (username!=null && username!="")
         {
         setCookie('username',username,365)
@@ -62,14 +69,20 @@ function checkCookie()
 }
 
 
+function updateUsername()
+{
+   var username = document.getElementById("username").value;
+   //document.getElementById("B").value = a;
+   setCookie('username',username,365)
+}
+
+
 </script>
 </head>
-<body>
-<pre id='vimCodeElement'>
 <body onLoad="checkCookie()">
+<pre id='vimCodeElement'>
 <h1>Hello, Frank </h1>
-
-<input type="text" id="name" name="username"> 
+<input id="username" onchange="updateUsername()">
 
 </pre>
 </body>
